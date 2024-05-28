@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  shardingsphere-proxy:
+    container_name: shardingsphere-proxy
+    image: apache/shardingsphere-proxy:5.1.1
+    restart: always
+    ports:
+      - 3307:3307
+    privileged: true
+    volumes:
+      - /${replace_with_your_path}/conf:/opt/shardingsphere-proxy/conf
+      - /${replace_with_your_path}/ext-lib:/opt/shardingsphere-proxy/ext-lib
+      - /${replace_with_your_path}/logs:/opt/shardingsphere-proxy/logs
